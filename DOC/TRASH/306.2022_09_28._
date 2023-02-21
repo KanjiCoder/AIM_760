@@ -1,0 +1,100 @@
+    
+
+    te7 ==> dia , removed from shader #5 , also duplicate
+
+    U32 d_te7_dia[ 7 ]=U32[ 7 ](                                 // [177]
+                                                                 // [177]
+        U32( ${c_dia_000} )                                      // [177]
+    ,   U32( ${c_dia_001} )                                      // [177]
+    ,   U32( ${c_dia_002} )                                      // [177]
+    ,   U32( ${c_dia_003} )                                      // [177]
+    ,   U32( ${c_dia_004} )                                      // [177]
+    ,   U32( ${c_dia_005} )                                      // [177]
+    ,   U32( ${c_dia_006} )                                      // [177]
+                                                                 // [177]
+    );//@NESC@://                                                // [177]
+
+    te7 ==> lat is in re-usable lookup tables file,
+    also removed from shader #5 as well.
+
+    U32 d_te7_lat[ 7 ]=U32[ 7 ](                                 //      [175]
+                                                                 //      [175]
+        U32( ${c_lat_000} )                                      //      [175]
+    ,   U32( ${c_lat_001} )                                      //      [175]
+    ,   U32( ${c_lat_002} )                                      //      [175]
+    ,   U32( ${c_lat_003} )                                      //      [175]
+    ,   U32( ${c_lat_004} )                                      //      [175]
+    ,   U32( ${c_lat_005} )                                      //      [175]
+    ,   U32( ${c_lat_006} )                                      //      [175]
+                                                                 // [---][---]
+    );//@NESC@://                                                // [177][175]
+
+    te7 ==> dun now exists in re-usable shader
+    lookup table file, so removed this from shader #5 as well.
+
+                                                                 //      [---]
+    U32 d_te7_dun[ 7 ]=U32[ 7 ](                                 //      [155]
+                                                                 //      [155]
+        U32( ${c_du0} )//:-------------------------------://     //      [155]
+    ,   U32( ${c_du1} )//:                               ://     //      [155]
+    ,   U32( ${c_du2} )//:  Your mom was an abacus       ://     //      [155]
+    ,   U32( ${c_du3} )//:  and your father reeked       ://     //      [155]
+    ,   U32( ${c_du4} )//:  of calculus papers.          ://     //      [155]
+    ,   U32( ${c_du5} )//:                               ://     //      [155]
+    ,   U32( ${c_du6} )//:  It's free real estate boys.  ://     //      [155]
+    ////               //:                               ://     //      [155]
+    );                 //:-------------------------------://     //      [155]
+
+    g25 ==> vod lookup table ended up being
+    re-defined because I hackishly copied it from one
+    shader into another, removed because shader 5 is
+    going to use the re-usable lookup tables file now.
+
+    //:#_G25_VOD_LOOKUP_TABLE_#:[189]:-----------------------:// // [---]
+                                                                 // [189]
+        #define   _v_ U32( 1 ) ///////////////////////////////// // [189]
+        #define exist U32( 0 ) ///////////////////////////////// // [189]
+                                                                 // [189]
+        U32 d_g25_vod[ 25 ]=U32[ 25 ](                           // [189]
+                                                                 // [189]
+            //: Grid_ID ==> IsVoidRoom ://                       // [189](162)
+                                                                 // [189][---]
+            ( _v_ ),( _v_ ),(exist),( _v_ ),( _v_ )              // [189](162)
+        ,   ( _v_ ),(exist),(exist),(exist),( _v_ )              // [189](162)
+        ,   (exist),(exist),(exist),(exist),(exist)              // [189](162)
+        ,   ( _v_ ),(exist),(exist),(exist),( _v_ )              // [189](162)
+        ,   ( _v_ ),( _v_ ),(exist),( _v_ ),( _v_ )              // [189](162)
+                                                                 // [189]
+        );//:@NESC@://                                           // [189]
+                                                                 // [189]
+        #undef    _v_  ///////////////////////////////////////// // [189]
+        #undef  exist  ///////////////////////////////////////// // [189]
+    //:-----------------------:#_G25_VOD_LOOKUP_TABLE_#:[189]:// // [---]
+
+    It is going to be easier to inject these lookup
+    tables rather than have to re-create the 
+    individual constants that are in those cells.
+
+    //:#_G25_R4C_TABLES_#:[176]:-----------------------------:// // [306][MOV][176]
+    #define _ U32( 0xFFFFFFFF )                                  // [306][MOV][176]
+                                                                 // [306][MOV][176]
+        U32 d_g25_r4x[ 25 ]=U32[ 25 ](                           // [306][MOV][176]
+                                                                 // [306][MOV][176]
+            (  _  ),(  _  ),(r4x_0),(  _  ),(  _  )              // [306][MOV][176](163)
+        ,   (  _  ),(r4x_1),(r4x_2),(r4x_3),(  _  )              // [306][MOV][176](163)
+        ,   (r4x_0),(r4x_1),(r4x_2),(r4x_3),(r4x_0)              // [306][MOV][176](163)
+        ,   (  _  ),(r4x_1),(r4x_2),(r4x_3),(  _  )              // [306][MOV][176](163)
+        ,   (  _  ),(  _  ),(r4x_0),(  _  ),(  _  )              // [306][MOV][176](163)
+                                                                 // [306][MOV][176]
+        );//:@NESC@://                                           // [306][MOV][176]
+        U32 d_g25_r4y[ 25 ]=U32[ 25 ](                           // [306][MOV][176]
+                                                                 // [306][MOV][176]
+            (  _  ),(  _  ),(r4y_0),(  _  ),(  _  )              // [306][MOV][176](163)
+        ,   (  _  ),(r4y_0),(r4y_0),(r4y_0),(  _  )              // [306][MOV][176](163)
+        ,   (r4y_1),(r4y_1),(r4y_1),(r4y_1),(r4y_2)              // [306][MOV][176](163)
+        ,   (  _  ),(r4y_2),(r4y_2),(r4y_2),(  _  )              // [306][MOV][176](163)
+        ,   (  _  ),(  _  ),(r4y_3),(  _  ),(  _  )              // [306][MOV][176](163)
+                                                                 // [306][MOV][176]
+        );//:@NESC@://                                           // [306][MOV][176]
+    #undef _                                                     // [306][MOV][176]
+    //:-----------------------------:#_G25_R4C_TABLES_#:[176]:// // [306][MOV][176]
